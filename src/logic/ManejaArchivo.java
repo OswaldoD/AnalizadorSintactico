@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CargaArchivo {
+public class ManejaArchivo {
 	private ArrayList<String> file_load = new ArrayList<String>();
 	private File file;
 	
-	public CargaArchivo(File file){
+	public ManejaArchivo(File file){
 		this.file = file;
 	}
 	
