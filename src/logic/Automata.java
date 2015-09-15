@@ -39,7 +39,7 @@ public class Automata {
 				
 				
 				int estado_inicial = Integer.parseInt(trans[0]);
-				String caracter = trans[1];
+				char caracter = trans[1].charAt(0);
 				int estado_final = Integer.parseInt(trans[2]);
 				Transicion transicion = new Transicion(estado_inicial, caracter, estado_final); 
 				Matriz_Transiciones.add(transicion);

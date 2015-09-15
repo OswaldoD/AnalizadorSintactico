@@ -57,6 +57,31 @@ public class ManejaArchivo {
 		
 		return caracter;
 	}
+	
+	/**
+	 * Método tome este caracter.
+	 * retorna true si lo puede regresar al buffer, false en caso contrario
+	 * @param caracter Caracter a regresar al buffer
+	 * @return boolean Retorna estado del caracter
+	 * 
+	 * */
+	public boolean tomeEsteCaracter(char caracter){
+		
+		if(file_load.get(columna).charAt(fila) == caracter){
+			
+			// actualiza contadores
+			
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+//		fila--;
+		// columna --;
+		
+
+	}
 	private void actualizaContadores(){
 		if(fila > (file_load.get(columna).length()) ){
 			fila=-1;
