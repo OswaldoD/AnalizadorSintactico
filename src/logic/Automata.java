@@ -6,11 +6,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Automata {
+	private String rutaTransiciones;
+	private String rutaFinales;
+	
 	private ArrayList<Transicion> Matriz_Transiciones = new ArrayList<Transicion>();
 	private int[][] Estados_Finales;
 	
-	
-	public Automata(){
+	/**
+	 * Constructor de la clase
+	 * @param rutaTransiciones
+	 * 
+	 * */
+	public Automata(String rutaTransiciones, String rutaFinales){
+		this.rutaTransiciones = rutaTransiciones;
+		this.rutaFinales = rutaFinales;
+		
 		fillMatrizTransiciones();
 		//fillMatrizEstadosFinales();
 	}
@@ -19,8 +29,8 @@ public class Automata {
 		
 		try{
 			int i = 0;
-			String ruta = "G:/Documentos/Workspace - Eclipse/AnalizadorSintactico/src/data/matriz_transiciones.txt";
-			BufferedReader entrada = new BufferedReader(new FileReader(ruta));
+		//	rutaTransiciones = "G:/Documentos/Workspace - Eclipse/AnalizadorSintactico/src/data/matriz_transiciones.txt";
+			BufferedReader entrada = new BufferedReader(new FileReader(rutaTransiciones));
 			String lectura;
 			
 			while((lectura = entrada.readLine()) != null){

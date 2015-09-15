@@ -7,17 +7,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ManejaArchivo {
+	private int fila = -1;
+	private int columna = 0;
 	private ArrayList<String> file_load = new ArrayList<String>();
-	private File file;
+	private String rutaArchivo;
 	
-	public ManejaArchivo(File file){
-		this.file = file;
+	public ManejaArchivo(String rutaArchivo){
+		this.rutaArchivo = rutaArchivo;
+		
 	}
-	
+	/**
+	 * Método que carga el archivo. 
+	 * Retorna true si no hubo ningun error.
+	 * Retorna false si existe error e imprime stack trace del error
+	 * @return boolean Estado de carga del archivo
+	 * */
 	public boolean loadFile( ){
 		try{
-			String ruta = file.getPath();
-			BufferedReader entrada = new BufferedReader(new FileReader(ruta));
+			
+			BufferedReader entrada = new BufferedReader(new FileReader(rutaArchivo));
 			String lectura;
 			
 			while((lectura = entrada.readLine()) != null){
@@ -33,6 +41,30 @@ public class ManejaArchivo {
 			return false;
 			
 		}
+	}
+	/**
+	 * Método deme el siguiente caracter.
+	 * retorna el siguiente caracter de cada linea del archivo
+	 * @return caracter El siguiente caracter del archivo
+	 * */
+	public char demeSiguienteCaracter(){
+		char caracter = ' ';
+		
+		actualizaContadores();
+		
+		caracter = file_load.get(columna).charAt(fila);
 
+		
+		return caracter;
+	}
+	private void actualizaContadores(){
+		if(fila > (file_load.get(columna).length()) ){
+			fila=-1;
+			columna++;
+			
+		}
+		else{
+			fila++;
+		}
 	}
 }
