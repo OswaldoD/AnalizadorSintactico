@@ -13,6 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import logic.Scanner;
+
 public class MainInterface extends JFrame implements ActionListener{
 
 	/**
@@ -76,14 +78,17 @@ public class MainInterface extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == mntmAbrirArchivo){
-			
+			/*
 			 JFileChooser chooser = new JFileChooser();
              if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                  // do something
             	 File file = chooser.getSelectedFile();
             	 System.out.println(file.getPath());
             	 
-             }
+             }*/
+			
+			Scanner scanner = new Scanner();
+			
 		}
 		if(e.getSource() == mntmSalir){
 			dispose();
