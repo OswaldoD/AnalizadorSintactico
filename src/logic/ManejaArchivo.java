@@ -92,4 +92,15 @@ public class ManejaArchivo {
 			fila++;
 		}
 	}
+	private void acualizaContadores(char caracter){
+		if( (fila == 0) && (columna != 0) ){ // caso fila en 0 columa no 0
+			// si la fila esta en 0, columna resta 1
+			fila--;
+			columna--;
+		}
+		else if( (fila!= 0) && (columna == 0) ){ //caso columa en 0 fila no 0
+			// si la fila no esta en 0, solo se resta la fila
+			fila--;
+		}
+	}
 }

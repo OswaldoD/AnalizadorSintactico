@@ -10,7 +10,7 @@ public class Automata {
 	private String rutaFinales;
 	
 	private ArrayList<Transicion> Matriz_Transiciones = new ArrayList<Transicion>();
-	private int[][] Estados_Finales;
+	private ArrayList<Integer> Estados_Finales = new ArrayList<Integer>();
 	
 	/**
 	 * Constructor de la clase
@@ -61,5 +61,10 @@ public class Automata {
 	
 	public ArrayList<Transicion> getTransiciones(){
 		return this.Matriz_Transiciones;
+	}
+	
+	public boolean isEstadoFinal(int estado){
+		return Estados_Finales.contains(estado);
+		
 	}
 }
