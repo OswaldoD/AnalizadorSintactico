@@ -28,9 +28,16 @@ public class Scanner {
 		archivo.demeSiguienteCaracter();
 		
 		System.out.println(automata.getTransiciones().get(0).getCaracter());
-		
+		System.out.println("Cargando transiciones...");
+		System.out.println(automata.getTransiciones().size() + "transiciones cargadas");
+		System.out.println("Cargando estados...");
+		System.out.println(automata.getEstadosFinales().size() + " estados cargados");
 	}
-	
+	/**
+	 * Método demeToken
+	 * @param ninguno
+	 * @return token el token creado
+	 * */
 	public Token demeToken(){
 		Token token = new Token();
 		int estado_actual = 210;  //estado inicial
@@ -57,6 +64,9 @@ public class Scanner {
 		
 		
 		return token;
+	}
+	public void setAutomata(String rutaArchivo){
+		
 	}
 
 }

@@ -22,13 +22,12 @@ public class Automata {
 		this.rutaFinales = rutaFinales;
 		
 		fillMatrizTransiciones();
-		//fillMatrizEstadosFinales();
+		fillMatrizEstadosFinales();
 	}
 	
 	public void fillMatrizTransiciones(){
 		
 		try{
-			int i = 0;
 		//	rutaTransiciones = "G:/Documentos/Workspace - Eclipse/AnalizadorSintactico/src/data/matriz_transiciones.txt";
 			BufferedReader entrada = new BufferedReader(new FileReader(rutaTransiciones));
 			String lectura;
@@ -56,11 +55,29 @@ public class Automata {
 	}
 	
 	public void fillMatrizEstadosFinales(){
+		try{
+			BufferedReader entrada = new BufferedReader(new FileReader(rutaFinales));
+			String lectura;
+			
+			while((lectura = entrada.readLine()) != null){
+				int estado_guardar = Integer.parseInt(lectura);
+				
+				Estados_Finales.add(estado_guardar);
+				
+			}
+			entrada.close();
+			
+		} catch (IOException e){
+			
+		}
 		
 	}
 	
 	public ArrayList<Transicion> getTransiciones(){
 		return this.Matriz_Transiciones;
+	}
+	public ArrayList<Integer> getEstadosFinales(){
+		return this.Estados_Finales;
 	}
 	
 	public boolean isEstadoFinal(int estado){
