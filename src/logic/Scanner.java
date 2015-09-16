@@ -19,7 +19,10 @@ public class Scanner {
 		this.rutaTransiciones = rutaTransiciones;
 		this.rutaEFinales = rutaEFinales;
 		
-		
+		/*
+		 * las asignaciones hay que quitarlas de aqui y hacerlas metodos que retornen
+		 * para mostrar mensajes de exito al cargar N estados finales N transiciones
+		 * */
 		automata = new Automata(this.rutaTransiciones, this.rutaEFinales);
 		
 		archivo = new ManejaArchivo(this.rutaArchivo);
