@@ -28,13 +28,33 @@ public class Scanner {
 		archivo = new ManejaArchivo(this.rutaArchivo);
 		archivo.loadFile();
 		
-		archivo.demeSiguienteCaracter();
+		/*archivo.demeSiguienteCaracter();*/
 		
 		System.out.println(automata.getTransiciones().get(0).getCaracter());
 		System.out.println("Cargando transiciones...");
 		System.out.println(automata.getTransiciones().size() + "transiciones cargadas");
 		System.out.println("Cargando estados...");
 		System.out.println(automata.getEstadosFinales().size() + " estados cargados");
+		
+		
+		for(int i = 0; i<automata.getTransiciones().size(); i++){
+			System.out.println("Estado inicio " + automata.getTransiciones().get(i).getEstadoInicial() + 
+					           " Caracter " + automata.getTransiciones().get(i).getCaracter() + 
+					           " Estado final " + automata.getTransiciones().get(i).getEstadoFinal());
+		}
+		
+		
+		InicializaScanner();
+
+		
+	}
+	public void InicializaScanner(){
+		System.out.println("Inicializando Scanner");
+		
+		Token token = new Token();
+		token = demeToken();
+		
+		System.out.println("Se genera el lexema " + token.getLexema() + " con la familia " + token.getFamilia());
 	}
 	/**
 	 * Método demeToken
@@ -45,10 +65,11 @@ public class Scanner {
 		Token token = new Token();
 		int estado_actual = 210;  //estado inicial
 		int columna_fin=0;
-		char caracter = archivo.demeSiguienteCaracter();
+		//char caracter = archivo.demeSiguienteCaracter();
 		String lexema = "";
 		while( !(automata.isEstadoFinal(estado_actual)) ){
 			// comenzamos a recorrer todo el automata
+			char caracter = archivo.demeSiguienteCaracter();
 			for(int i = 0; i < automata.getTransiciones().size(); i++){
 				if( (caracter == automata.getTransiciones().get(i).getCaracter()) &&
 					(estado_actual == automata.getTransiciones().get(i).getEstadoInicial())){
@@ -56,6 +77,9 @@ public class Scanner {
 					estado_actual = automata.getTransiciones().get(i).getEstadoFinal();
 					lexema += caracter;
 					columna_fin++;
+					System.out.println("formando lexema " + lexema + " estado siguiente " + estado_actual);
+					//caracter = archivo.demeSiguienteCaracter();
+					break;
 				}
 			}
 			

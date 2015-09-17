@@ -14,6 +14,7 @@ public class Token {
 	public Token(){
 		this.familia = 0;
 		this.lexema = "";
+		this.inf_adicional = new int[3];
 		this.inf_adicional[0] = 0; //fila-linea
 		this.inf_adicional[1] = 0; //columna-inicio
 		this.inf_adicional[1] = 0; //columna-fin
