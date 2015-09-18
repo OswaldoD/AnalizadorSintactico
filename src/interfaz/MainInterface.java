@@ -125,6 +125,7 @@ public class MainInterface extends JFrame implements ActionListener{
 		
 		else if(e.getSource() == mntmAbrirMTransicion){
 			//abrir menu para cargar el archivo de transiciones
+			/*
 			JFileChooser chooser = new JFileChooser();
             if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 // do something
@@ -133,20 +134,22 @@ public class MainInterface extends JFrame implements ActionListener{
            	 File file = chooser.getSelectedFile();
            	 rutaTransiciones = file.getPath();
            	 
-            }
-
+            }*/
+			rutaTransiciones = "src/data/mt.txt";
 		}
 		else if(e.getSource() == mntmAbrirMFinales){
 			// abrir menu para cargar el archivo de estados finales
+			/*
 			JFileChooser chooser = new JFileChooser();
             if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 // do something
            	 
-           	 
+           	
            	 File file = chooser.getSelectedFile();
            	 rutaEFinales = file.getPath();
            	 
-            }
+            }*/
+			rutaEFinales = "src/data/finales.txt";
 
 		}
 	}
