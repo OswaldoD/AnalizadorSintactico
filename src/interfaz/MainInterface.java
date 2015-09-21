@@ -117,7 +117,7 @@ public class MainInterface extends JFrame implements ActionListener{
 	}
 	private String showInfoTextPane(ArrayList<String> lineas){
 		String show = "";
-		ArrayList.forEach();
+		
 		for(int i = 0; i< lineas.size(); i++){
 			show += lineas.get(i);
 			show += "\n";
