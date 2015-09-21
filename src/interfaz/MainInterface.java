@@ -24,7 +24,7 @@ public class MainInterface extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JMenu mnNewMenu,mnCargarMatriz;
+	private JMenu mnArchivo,mnCargarMatriz;
 	private JMenuBar menuBar;
 	private JMenuItem mntmAbrirArchivo, mntmSalir, mntmAbrirMTransicion, mntmAbrirMFinales;
 	private String rutaArchivo, rutaTransiciones, rutaEFinales;
@@ -66,19 +66,19 @@ public class MainInterface extends JFrame implements ActionListener{
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		mnNewMenu = new JMenu("Archivo");
-		menuBar.add(mnNewMenu);
+		mnArchivo = new JMenu("Archivo");
+		menuBar.add(mnArchivo);
 		
 		mnCargarMatriz = new JMenu("Cargar Automata");
 		menuBar.add(mnCargarMatriz);
 		
 		mntmAbrirArchivo = new JMenuItem("Abrir archivo");
 		mntmAbrirArchivo.addActionListener(this);
-		mnNewMenu.add(mntmAbrirArchivo);
+		mnArchivo.add(mntmAbrirArchivo);
 		
 		mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(this);
-		mnNewMenu.add(mntmSalir);
+		mnArchivo.add(mntmSalir);
 		
 		mntmAbrirMTransicion = new JMenuItem("M Transiciones");
 		mntmAbrirMTransicion.addActionListener(this);
