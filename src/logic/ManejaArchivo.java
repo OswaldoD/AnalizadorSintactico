@@ -82,6 +82,14 @@ public class ManejaArchivo {
 		
 
 	}
+	/**
+	 * Método que retorna el arrayList del archivo cargado
+	 * @return file loaded ArrayList del archivo cargado
+	 * */
+	
+	public ArrayList<String> getFileLoades(){
+		return this.file_load;
+	}
 	private void actualizaContadores(){
 		if(fila > (file_load.get(columna).length()) ){
 			fila=-1;

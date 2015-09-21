@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,6 +18,8 @@ import javax.swing.JOptionPane;
 
 import logic.Scanner;
 
+import javax.swing.JTextPane;
+
 public class MainInterface extends JFrame implements ActionListener{
 
 	/**
@@ -26,8 +29,10 @@ public class MainInterface extends JFrame implements ActionListener{
 	private JPanel contentPane;
 	private JMenu mnArchivo,mnCargarMatriz;
 	private JMenuBar menuBar;
-	private JMenuItem mntmAbrirArchivo, mntmSalir, mntmAbrirMTransicion, mntmAbrirMFinales;
+	private JMenuItem mntmAbrirArchivo, mntmSalir, mntmAbrirMTransicion, mntmAbrirMFinales, mntmInicializarScanner;
 	private String rutaArchivo, rutaTransiciones, rutaEFinales;
+	private Scanner Scanner;
+	private JTextPane txtpnOutput;
 	/**
 	 * Launch the application.
 	 */
@@ -48,9 +53,9 @@ public class MainInterface extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public MainInterface() {
-		super("Analizador Sintáctico");
+		super("Scanner");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 400);
 		
 
 		
@@ -60,6 +65,7 @@ public class MainInterface extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		
 		createMenuBar();
+		createTextPane();
 	}
 	private void createMenuBar(){
 		
@@ -69,16 +75,21 @@ public class MainInterface extends JFrame implements ActionListener{
 		mnArchivo = new JMenu("Archivo");
 		menuBar.add(mnArchivo);
 		
-		mnCargarMatriz = new JMenu("Cargar Automata");
-		menuBar.add(mnCargarMatriz);
-		
 		mntmAbrirArchivo = new JMenuItem("Abrir archivo");
 		mntmAbrirArchivo.addActionListener(this);
 		mnArchivo.add(mntmAbrirArchivo);
 		
+		mntmInicializarScanner = new JMenuItem("Iniciar Scanner");
+		mntmInicializarScanner.addActionListener(this);
+		mnArchivo.add(mntmInicializarScanner);
+		
 		mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(this);
 		mnArchivo.add(mntmSalir);
+	
+		/*
+		mnCargarMatriz = new JMenu("Cargar Automata");
+		menuBar.add(mnCargarMatriz);
 		
 		mntmAbrirMTransicion = new JMenuItem("M Transiciones");
 		mntmAbrirMTransicion.addActionListener(this);
@@ -86,17 +97,42 @@ public class MainInterface extends JFrame implements ActionListener{
 	    
 	    mntmAbrirMFinales = new JMenuItem("Estados Finales");
 	    mntmAbrirMFinales.addActionListener(this);
-	    mnCargarMatriz.add(mntmAbrirMFinales);
+	    mnCargarMatriz.add(mntmAbrirMFinales);*/
 		
+	}
+	private void createTextPane(){
+		
+		txtpnOutput = new JTextPane();
+		txtpnOutput.setEditable(false);
+		txtpnOutput.setBounds(40, 25, 500, 280);
+		contentPane.add(txtpnOutput);
+		
+		ArrayList<String> p = new ArrayList<String>();
+		
+		p.add("Hola");
+		p.add("Como");
+		p.add("Estas");
+		txtpnOutput.setText(showInfoTextPane(p));
+		
+	}
+	private String showInfoTextPane(ArrayList<String> lineas){
+		String show = "";
+		ArrayList.forEach();
+		for(int i = 0; i< lineas.size(); i++){
+			show += lineas.get(i);
+			show += "\n";
+		}
+		
+		return show;
 	}
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
 		if(e.getSource() == mntmAbrirArchivo){
 			
 			 // Extension del archivo
 			 JFileChooser chooser = new JFileChooser();
-			 FileNameExtensionFilter filter = new FileNameExtensionFilter(
-			            "chirripö files", "chi");
+			 FileNameExtensionFilter filter = new FileNameExtensionFilter("chirripö files", "chi");
 			 chooser.setFileFilter(filter);
 			 
              if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
@@ -104,20 +140,25 @@ public class MainInterface extends JFrame implements ActionListener{
             	 
             	 File file = chooser.getSelectedFile();
             	 rutaArchivo = file.getPath();
+            	 
+            	 rutaTransiciones = "src/data/mt.txt";
+            	 
+            	 rutaEFinales = "src/data/finales.txt";
 
- 				 JOptionPane.showMessageDialog(null,"Archivo cargado exitosamente",
-  						  "Archivo cargado",JOptionPane.WARNING_MESSAGE);
+ 				if((rutaArchivo!=null)&&(rutaTransiciones!=null)&&(rutaEFinales!=null)){
+ 					
+ 	 				 JOptionPane.showMessageDialog(null,"Archivo cargado exitosamente",
+ 	  						  "Archivo cargado",JOptionPane.WARNING_MESSAGE);
+ 					Scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
+ 					
+ 				} else {
+ 					JOptionPane.showMessageDialog(null,"Error en el archivo, revise que se hayan cargado correctamente",
+ 	 						  "Error al cargar el archivo",JOptionPane.ERROR_MESSAGE);
+ 				}
+
             	 
              }
-			if((rutaArchivo!=null)&&(rutaTransiciones!=null)&&(rutaEFinales!=null)){
-				Scanner scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
-			}
-			else{
-				JOptionPane.showMessageDialog(null,"Error en el archivo, revise que se hayan cargado correctamente",
- 						  "Error al cargar el archivo",JOptionPane.ERROR_MESSAGE);
-				
-			}
-			
+						
 		}
 		else if(e.getSource() == mntmSalir){
 			dispose();
@@ -135,7 +176,7 @@ public class MainInterface extends JFrame implements ActionListener{
            	 rutaTransiciones = file.getPath();
            	 
             }*/
-			rutaTransiciones = "src/data/mt.txt";
+			
 		}
 		else if(e.getSource() == mntmAbrirMFinales){
 			// abrir menu para cargar el archivo de estados finales
@@ -149,7 +190,7 @@ public class MainInterface extends JFrame implements ActionListener{
            	 rutaEFinales = file.getPath();
            	 
             }*/
-			rutaEFinales = "src/data/finales.txt";
+			
 
 		}
 	}

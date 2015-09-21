@@ -11,6 +11,7 @@ public class Scanner {
 	private Automata automata;
 	private ManejaArchivo archivo;
 	private ArrayList<Token> Tokens = new ArrayList<Token>();
+	private ArrayList<String> SalidaEstandar = new ArrayList<String>();
 	
 	
 	public Scanner(String rutaArchivo, String rutaTransiciones, String rutaEFinales){
@@ -35,16 +36,17 @@ public class Scanner {
 		System.out.println(automata.getTransiciones().size() + "transiciones cargadas");
 		System.out.println("Cargando estados...");
 		System.out.println(automata.getEstadosFinales().size() + " estados cargados");
-		
-		
+		System.out.println("Cargando archivo...");
+		System.out.println(archivo.getFileLoades() + " lineas cargadas");
+		/*
 		for(int i = 0; i<automata.getTransiciones().size(); i++){
 			System.out.println("Estado inicio " + automata.getTransiciones().get(i).getEstadoInicial() + 
 					           " Caracter " + automata.getTransiciones().get(i).getCaracter() + 
 					           " Estado final " + automata.getTransiciones().get(i).getEstadoFinal());
-		}
+		}*/
 		
 		
-		InicializaScanner();
+		/*InicializaScanner();*/
 
 		
 	}
