@@ -15,10 +15,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 import logic.Scanner;
 
 import javax.swing.JTextPane;
+
+import java.awt.Scrollbar;
 
 public class MainInterface extends JFrame implements ActionListener{
 
@@ -107,12 +110,22 @@ public class MainInterface extends JFrame implements ActionListener{
 		txtpnOutput.setBounds(40, 25, 500, 280);
 		contentPane.add(txtpnOutput);
 		
+		JScrollPane scrollbar = new JScrollPane(txtpnOutput);
+		//scrollbar.setVisible(true);
+		scrollbar.setBounds(40, 25, 500, 280);
+		contentPane.add(scrollbar);
+		
 		ArrayList<String> p = new ArrayList<String>();
 		
 		p.add("Hola");
 		p.add("Como");
 		p.add("Estas");
+		for(int i = 0; i<1; i++){
+			p.add("0");
+		}
 		txtpnOutput.setText(showInfoTextPane(p));
+		
+
 		
 	}
 	private String showInfoTextPane(ArrayList<String> lineas){
