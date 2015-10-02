@@ -1,8 +1,12 @@
 package logic;
 /**
  * Clase que modela los Tokens
- * 
- * 
+ * Atributos:
+ *           Familia -> número de familia al que pertenece el token
+ *           Lexema -> string como viene en el archivo
+ *           Información Adicional -> fila del token, columna inicio, columna fin del token
+ *           Código de error -> si es un error se genera un número, caso contrario es 0
+ *           
  * */
 public class Token {
 	

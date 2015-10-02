@@ -1,5 +1,12 @@
 package logic;
-
+/**
+ * Clase que modela las transiciones del autómata
+ * Atributos:
+ *           Estado Inicial
+ *           Caracter
+ *           Estado Final
+ *           
+ * */
 public class Transicion{
 
 	private int estado_inicial;

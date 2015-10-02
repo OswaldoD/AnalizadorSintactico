@@ -5,6 +5,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Clase que modela el autómata del scanner
+ * Atributos:
+ *           rutaTransiciones
+ *           rutaFinales
+ *           Matriz_Transiciones
+ *           Estados_Finales
+ * 
+ * */
 public class Automata {
 	private String rutaTransiciones;
 	private String rutaFinales;
