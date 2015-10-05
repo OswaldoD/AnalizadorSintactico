@@ -162,7 +162,11 @@ public class MainInterface extends JFrame implements ActionListener{
  					
  	 				 JOptionPane.showMessageDialog(null,"Archivo cargado exitosamente",
  	  						  "Archivo cargado",JOptionPane.WARNING_MESSAGE);
+ 	 				 
  					Scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
+ 					
+ 					
+ 					
  					
  				} else {
  					JOptionPane.showMessageDialog(null,"Error en el archivo, revise que se hayan cargado correctamente",
