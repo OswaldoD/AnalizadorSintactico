@@ -17,6 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
+import logic.ParserMain;
 import logic.Scanner;
 
 import javax.swing.JTextPane;
@@ -56,7 +57,7 @@ public class MainInterface extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public MainInterface() {
-		super("Scanner");
+		super("Parser");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		
@@ -138,9 +139,11 @@ public class MainInterface extends JFrame implements ActionListener{
 		
 		return show;
 	}
+	/**
+	 * Manejo de clicks de la interfaz
+	 * */
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
 		if(e.getSource() == mntmAbrirArchivo){
 			
 			 // Extension del archivo
@@ -154,7 +157,7 @@ public class MainInterface extends JFrame implements ActionListener{
             	 File file = chooser.getSelectedFile();
             	 rutaArchivo = file.getPath();
             	 
-            	 rutaTransiciones = "src/data/mt.txt";
+            	 rutaTransiciones = "src/data/matriz_transiciones.txt";
             	 
             	 rutaEFinales = "src/data/finales.txt";
 
@@ -163,10 +166,13 @@ public class MainInterface extends JFrame implements ActionListener{
  	 				 JOptionPane.showMessageDialog(null,"Archivo cargado exitosamente",
  	  						  "Archivo cargado",JOptionPane.WARNING_MESSAGE);
  	 				 
- 					Scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
+ 					//Scanner = new Scanner();
  					
  					
  					
+ 					ParserMain Parser = new ParserMain(rutaArchivo, rutaTransiciones, rutaEFinales);
+ 					
+ 					Parser.driverParser();
  					
  				} else {
  					JOptionPane.showMessageDialog(null,"Error en el archivo, revise que se hayan cargado correctamente",
@@ -179,36 +185,6 @@ public class MainInterface extends JFrame implements ActionListener{
 		}
 		else if(e.getSource() == mntmSalir){
 			dispose();
-		}
-		
-		else if(e.getSource() == mntmAbrirMTransicion){
-			//abrir menu para cargar el archivo de transiciones
-			/*
-			JFileChooser chooser = new JFileChooser();
-            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                // do something
-           	 
-           	 
-           	 File file = chooser.getSelectedFile();
-           	 rutaTransiciones = file.getPath();
-           	 
-            }*/
-			
-		}
-		else if(e.getSource() == mntmAbrirMFinales){
-			// abrir menu para cargar el archivo de estados finales
-			/*
-			JFileChooser chooser = new JFileChooser();
-            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                // do something
-           	 
-           	
-           	 File file = chooser.getSelectedFile();
-           	 rutaEFinales = file.getPath();
-           	 
-            }*/
-			
-
 		}
 	}
 }

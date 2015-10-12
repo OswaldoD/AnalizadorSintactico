@@ -20,24 +20,19 @@ public class Scanner {
 		this.rutaTransiciones = rutaTransiciones;
 		this.rutaEFinales = rutaEFinales;
 		
-		/*
-		 * las asignaciones hay que quitarlas de aqui y hacerlas metodos que retornen
-		 * para mostrar mensajes de exito al cargar N estados finales N transiciones
-		 * */
 		automata = new Automata(this.rutaTransiciones, this.rutaEFinales);
 		
 		archivo = new ManejaArchivo(this.rutaArchivo);
 		archivo.loadFile();
 		
-		/*archivo.demeSiguienteCaracter();*/
 		
-		System.out.println(automata.getTransiciones().get(0).getCaracter());
 		System.out.println("Cargando transiciones...");
-		System.out.println(automata.getTransiciones().size() + "transiciones cargadas");
+		System.out.println(automata.getTransiciones().size() + " transiciones cargadas \n");
 		System.out.println("Cargando estados...");
-		System.out.println(automata.getEstadosFinales().size() + " estados cargados");
+		System.out.println(automata.getEstadosFinales().size() + " estados cargados \n");
 		System.out.println("Cargando archivo...");
-		System.out.println(archivo.getFileLoades() + " lineas cargadas");
+		System.out.println(archivo.getFileLoades() + " lineas cargadas \n");
+		
 		/*
 		for(int i = 0; i<automata.getTransiciones().size(); i++){
 			System.out.println("Estado inicio " + automata.getTransiciones().get(i).getEstadoInicial() + 
@@ -46,17 +41,23 @@ public class Scanner {
 		}*/
 		
 		
-		/*InicializaScanner();*/
+		InicializaScanner();
 
 		
 	}
 	public void InicializaScanner(){
 		System.out.println("Inicializando Scanner");
 		
+		System.out.println("Estado Finales " + automata.getEstadosFinales());
+		
+		/*
 		Token token = new Token();
+		while(!(token.getLexema().equals("FIN DE ARCHIVO"))){
 		token = demeToken();
 		
+		
 		System.out.println("Se genera el lexema " + token.getLexema() + " con la familia " + token.getFamilia());
+		}*/
 	}
 	/**
 	 * Método demeToken
@@ -74,13 +75,23 @@ public class Scanner {
 			char caracter = archivo.demeSiguienteCaracter();
 			for(int i = 0; i < automata.getTransiciones().size(); i++){
 				if( (caracter == automata.getTransiciones().get(i).getCaracter()) &&
-					(estado_actual == automata.getTransiciones().get(i).getEstadoInicial())){
+					(estado_actual == automata.getTransiciones().get(i).getEstadoInicial()) ){
 					// 210,A,211
 					estado_actual = automata.getTransiciones().get(i).getEstadoFinal();
-					lexema += caracter;
+					
 					columna_fin++;
-					System.out.println("formando lexema " + lexema + " estado siguiente " + estado_actual);
+					if (caracter != ' ') lexema += caracter;
+			
+					//System.out.println("formando lexema " + lexema + " estado siguiente " + estado_actual);
 					//caracter = archivo.demeSiguienteCaracter();
+					break;
+				}
+				
+				if(caracter == '¨'){
+					// FIN DE ARCHIVO
+					lexema = "FIN DE ARCHIVO";
+					
+					estado_actual = 181; // hay que cambiarlo por marcaderecha
 					break;
 				}
 			}
@@ -96,6 +107,28 @@ public class Scanner {
 	}
 	public void setAutomata(String rutaArchivo){
 		
+	}
+	
+	/**
+	 * Asigna la ruta del archivo a cargar
+	 * 
+	 * */
+	public void setRutaArchivo(String rutaArchivo){
+		this.rutaArchivo = rutaArchivo;
+	}
+	
+	/**
+	 * Asigna la ruta del archivo del autómata
+	 * */
+	public void setRutaTransiciones(String rutaTransiciones){
+		this.rutaTransiciones = rutaTransiciones;
+	}
+	
+	/**
+	 * Asigna la ruta del archivo que tiene los estados finales del autómata
+	 * */
+	public void setRutaFinales(String rutaFinales){
+		this.rutaEFinales = rutaFinales;
 	}
 
 }
