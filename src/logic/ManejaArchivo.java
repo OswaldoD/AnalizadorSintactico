@@ -1,7 +1,6 @@
 package logic;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -110,6 +109,7 @@ public class ManejaArchivo {
 			columna++;
 		}
 	}
+	/*
 	private void acualizaContadores(char caracter){
 		if( (fila == 0) && (columna != 0) ){ // caso fila en 0 columa no 0
 			// si la fila esta en 0, columna resta 1
@@ -120,7 +120,7 @@ public class ManejaArchivo {
 			// si la fila no esta en 0, solo se resta la fila
 			fila--;
 		}
-	}
+	}*/
 	
 	
 	private void limpiaEnter(){

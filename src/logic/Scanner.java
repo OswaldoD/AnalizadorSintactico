@@ -91,7 +91,7 @@ public class Scanner {
 					// FIN DE ARCHIVO
 					lexema = "FIN DE ARCHIVO";
 					
-					estado_actual = 181; // hay que cambiarlo por marcaderecha
+					estado_actual = 114; // hay que cambiarlo por marcaderecha
 					break;
 				}
 			}
@@ -129,6 +129,11 @@ public class Scanner {
 	 * */
 	public void setRutaFinales(String rutaFinales){
 		this.rutaEFinales = rutaFinales;
+	}
+	
+	public ManejaArchivo getArchivo(){
+		return this.archivo;
+		
 	}
 
 }

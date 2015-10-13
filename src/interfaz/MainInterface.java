@@ -69,7 +69,7 @@ public class MainInterface extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		
 		createMenuBar();
-		createTextPane();
+		//createTextPane();
 	}
 	private void createMenuBar(){
 		
