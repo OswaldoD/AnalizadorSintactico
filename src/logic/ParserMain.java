@@ -1,8 +1,10 @@
 package logic;
 
+import java.util.Hashtable;
 import java.util.Stack;
 
 import Gramatica.Gramatica;
+import tablaParsing.DatoGuardado;
 /**
  * Clase que maneja el parser del compilador
  * Atributos:
@@ -20,6 +22,8 @@ public class ParserMain extends Gramatica {
 	private Stack<Integer> pila_parsing;
 	private Scanner scanner;
 	//private Token token;
+	
+	private Hashtable<Integer, DatoGuardado> TablaSimbolosGlobal; //Tabla de símbolos
 	
 	public ParserMain(String rutaArchivo, String rutaTransiciones, String rutaEFinales){
 		scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
