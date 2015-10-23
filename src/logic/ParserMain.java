@@ -4,7 +4,7 @@ import java.util.Hashtable;
 import java.util.Stack;
 
 import Gramatica.Gramatica;
-import tablaParsing.DatoGuardado;
+import tablaSimbolos.DatoGuardado;
 /**
  * Clase que maneja el parser del compilador
  * Atributos:
