@@ -1,7 +1,7 @@
 /**
  * 
  */
-package tablaParsing;
+package tablaSimbolos;
 
 /**
  * @author Phoenix
