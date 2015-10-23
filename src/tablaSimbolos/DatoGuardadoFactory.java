@@ -38,6 +38,18 @@ public class DatoGuardadoFactory implements DatoGuardadoFactoryMethod{
 		return new VarRegistro(queSoy, ID,
 			tipo, listaCampos);
 	}
+
+	public DatoGuardado createDatoGuardado(String queSoy, String ID,
+			String tipo, Tuple<String, String>[] parametros) {
+		// TODO Auto-generated method stub
+		if(queSoy.equals("rutina")){
+			
+		}
+		else{
+			
+		}
+		return null;
+	}
 	
 
 }

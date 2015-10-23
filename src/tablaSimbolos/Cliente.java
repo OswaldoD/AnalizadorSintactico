@@ -10,7 +10,9 @@ public class Cliente {
 		
 		Tuple<String, String> parametro = new Tuple<String, String>("int", "x");
 		
-		System.out.println(parametro.toString());
+		Tuple<String, String> [] parametros = new Tuple[3]; 
+		parametros[0] = parametro;
+		System.out.println(parametros[0].getFirst());
 		
 		DatoGuardadoFactory factory = new DatoGuardadoFactory();
 		DatoGuardado datoGuardadoV = factory.createDatoGuardado("variable", "x", "B", "30");

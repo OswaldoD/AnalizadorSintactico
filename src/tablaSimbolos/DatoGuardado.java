@@ -11,7 +11,8 @@ public abstract class DatoGuardado {
 	/**
 	 * constructor de Variables atómicas y constantes
 	 * */ 
-	public DatoGuardado(String queSoy, String ID, String tipo, String valorInicial){
+	public DatoGuardado(String queSoy, String ID, 
+			String tipo, String valorInicial){
 		setQueSoy(queSoy);
 		setID(ID);
 		setTipo(tipo);
@@ -21,7 +22,8 @@ public abstract class DatoGuardado {
 	 * Constructor de los arreglos
 	 * 
 	 * */
-	public DatoGuardado(String queSoy, String ID, String tipo, String valorInicial, int tamanno, String tipoAlmacenado){
+	public DatoGuardado(String queSoy, String ID, 
+			String tipo, String valorInicial, int tamanno, String tipoAlmacenado){
 		setQueSoy(queSoy);
 		setID(ID);
 		setTipo(tipo);
@@ -31,29 +33,59 @@ public abstract class DatoGuardado {
 	/**
 	 * Constructor de los registros
 	 * */
-	public DatoGuardado(String queSoy, String ID, String tipo, String[] listaCampos){
+	public DatoGuardado(String queSoy, String ID, 
+			String tipo, String[] listaCampos){
 		setQueSoy(queSoy);
 		setID(ID);
 		setTipo(tipo);
 		setValorInicial(valorInicial);
 	}
+	
+	/**
+	 * Constructor de las funciones
+	 * @return
+	 */
+	public DatoGuardado(){
+		
+	}
+	
+	/**
+	 * Constructor de las rutinas
+	 * @return
+	 */
+	public DatoGuardado(String queSoy, String ID, String tipo, Tuple<String, String>[] parametros){
+		
+	}
 
 	public abstract String getDescripcion();
 	
+	/*------------------------------------------------------------------------------------------------- */
 	public void setQueSoy(String queSoy){
 		this.queSoy = queSoy;
+	}
+	public String getQueSoy(){
+		return this.queSoy;
 	}
 	
 	public void setID(String ID){
 		this.ID = ID;
 	}
+	public String getID(){
+		return this.ID;
+	}
 	
 	public void setTipo(String tipo){
 		this.tipo = tipo;
 	}
+	public String getTipo(){
+		return this.tipo;
+	}
 	
 	public void setValorInicial(String valorInicial){
 		this.valorInicial = valorInicial;
+	}
+	public String getValorInicial(){
+		return this.valorInicial;
 	}
 
 }

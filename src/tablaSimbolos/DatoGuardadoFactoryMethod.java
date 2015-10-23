@@ -17,5 +17,7 @@ public interface DatoGuardadoFactoryMethod {
 	
 	public DatoGuardado createDatoGuardado(String queSoy, String ID, String tipo, String[] listaCampos);
 	
+	public DatoGuardado createDatoGuardado(String queSoy, String ID, 
+			String tipo, Tuple<String, String>[] parametros);
 
 }
