@@ -5,6 +5,7 @@ import java.util.Stack;
 
 import Gramatica.Gramatica;
 import tablaSimbolos.DatoGuardado;
+import tablaSimbolos.DatoGuardadoFactory;
 /**
  * Clase que maneja el parser del compilador
  * Atributos:
@@ -23,10 +24,18 @@ public class ParserMain extends Gramatica {
 	private Scanner scanner;
 	//private Token token;
 	
-	private Hashtable<Integer, DatoGuardado> TablaSimbolosGlobal; //Tabla de símbolos
+	private Hashtable<String, DatoGuardado> TablaSimbolosGlobal; //Tabla de símbolos
+	private DatoGuardadoFactory dataFactory;
+	private Stack<String> pilaParalelaDeTipos;
 	
 	public ParserMain(String rutaArchivo, String rutaTransiciones, String rutaEFinales){
 		scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
+		
+		
+		TablaSimbolosGlobal = new Hashtable<String, DatoGuardado>();
+		
+		dataFactory = new DatoGuardadoFactory();
+		
 	}
 
 	
@@ -72,6 +81,26 @@ public class ParserMain extends Gramatica {
 					
 					puntoSeguro(ePuntoSeguro, caracter_seguro); // error punto seguro
 				}	
+			}
+			/**
+			 * Acá se implementa el analizador semántico
+			 * 
+			 * */
+			else if (esSimboloSemantico(EAP)){
+				switch(EAP){
+					case 6:
+						    break;
+					case 7:
+						    DatoGuardado datoGuardado = dataFactory.createDatoGuardado("variable", "x", "B", "30");
+						    System.out.println(datoGuardado.getDescripcion());
+							System.out.println("HOLA TENGO SUEÑO OCUPO SIMBOLOS SEMANTICOS GG YA FUE");
+							
+							TablaSimbolosGlobal.put("lexema", datoGuardado);
+							
+						    break;
+					default:
+							break;
+				}
 			}
 			else{
 				/*

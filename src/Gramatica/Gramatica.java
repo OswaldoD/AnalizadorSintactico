@@ -43,7 +43,7 @@ public abstract class Gramatica
 	public static final int MAX_FOLLOWS = 44;
 
 	/* Constantes con las rutinas semánticas */
-	/* NO SE DETECTARON SÍMBOLOS SEMÁNTICOS EN LA GRAMÁTICA */
+	public static final int creaTabla = 6;
 
 	/**
 	 * Método esTerminal
