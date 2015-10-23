@@ -15,15 +15,9 @@ public class Constante extends DatoGuardado {
 	@Override
 	public String getDescripcion() {
 		// TODO Auto-generated method stub
-		return "variable atómica constante";
+		return "constante";
 	}
 
-	@Override
-	public String queSoy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	
 
 }

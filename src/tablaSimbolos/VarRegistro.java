@@ -15,12 +15,6 @@ public class VarRegistro extends DatoGuardado {
 		return "variable estructural registro";
 	}
 
-	@Override
-	public String queSoy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public void setListaCampos(String[] listaCampos){
 		this.listaCampos = listaCampos;
 	}

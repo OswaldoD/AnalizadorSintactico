@@ -6,39 +6,39 @@ public abstract class DatoGuardado {
 	private String ID;
 	private String tipo;
 	private String valorInicial;
-	/*
-	private
-	*/
+
 	
 	/**
 	 * constructor de Variables atómicas y constantes
 	 * */ 
 	public DatoGuardado(String queSoy, String ID, String tipo, String valorInicial){
-		
+		setQueSoy(queSoy);
+		setID(ID);
+		setTipo(tipo);
+		setValorInicial(valorInicial);
 	}
 	/**
 	 * Constructor de los arreglos
 	 * 
 	 * */
 	public DatoGuardado(String queSoy, String ID, String tipo, String valorInicial, int tamanno, String tipoAlmacenado){
-		
+		setQueSoy(queSoy);
+		setID(ID);
+		setTipo(tipo);
+		setValorInicial(valorInicial);
 	}
 	
 	/**
 	 * Constructor de los registros
 	 * */
 	public DatoGuardado(String queSoy, String ID, String tipo, String[] listaCampos){
-		
+		setQueSoy(queSoy);
+		setID(ID);
+		setTipo(tipo);
+		setValorInicial(valorInicial);
 	}
-	// constructor de constantes
-
-
-		// TODO Auto-generated constructor stub
-	
 
 	public abstract String getDescripcion();
-	
-	public abstract String queSoy();
 	
 	public void setQueSoy(String queSoy){
 		this.queSoy = queSoy;

@@ -18,12 +18,6 @@ public class VarArreglo extends DatoGuardado {
 		return "variable estructural arreglo";
 	}
 
-	@Override
-	public String queSoy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public void setTamanno(int tamanno){
 		this.tamanno = tamanno;
 	}

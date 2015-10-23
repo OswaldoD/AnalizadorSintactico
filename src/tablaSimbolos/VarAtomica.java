@@ -15,14 +15,7 @@ public class VarAtomica extends DatoGuardado{
 	@Override
 	public String getDescripcion() {
 		// TODO Auto-generated method stub
-		return null;
+		return "variable atómica";
 	}
-
-	@Override
-	public String queSoy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
 }
