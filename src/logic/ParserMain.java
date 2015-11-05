@@ -32,6 +32,7 @@ public class ParserMain extends Gramatica {
 		scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
 		
 		
+		
 		TablaSimbolosGlobal = new Hashtable<String, DatoGuardado>();
 		
 		dataFactory = new DatoGuardadoFactory();
@@ -87,16 +88,15 @@ public class ParserMain extends Gramatica {
 			 * 
 			 * */
 			else if (esSimboloSemantico(EAP)){
+				/**
+				 * El switch es para implementar los diferentes símbolos semánticos que se tengan. 
+				 * */
 				switch(EAP){
-					case 6:
-						    break;
-					case 7:
+					case creaTabla:
 						    DatoGuardado datoGuardado = dataFactory.createDatoGuardado("variable", "x", "B", "30");
 						    System.out.println(datoGuardado.getDescripcion());
-							System.out.println("HOLA TENGO SUEÑO OCUPO SIMBOLOS SEMANTICOS GG YA FUE");
 							
 							TablaSimbolosGlobal.put("lexema", datoGuardado);
-							
 						    break;
 					default:
 							break;

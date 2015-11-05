@@ -1,4 +1,10 @@
 package tablaSimbolos;
+/**
+ * 
+ * Clase que se encarga de Fabricar los diferentes tipos de datos
+ * que requiera la tabla de símbolos
+ * 
+ * */
 
 public class DatoGuardadoFactory implements DatoGuardadoFactoryMethod{
 
@@ -39,16 +45,20 @@ public class DatoGuardadoFactory implements DatoGuardadoFactoryMethod{
 			tipo, listaCampos);
 	}
 
+	/**
+	 * Construcción de Funciones y Rutinas
+	 */
 	public DatoGuardado createDatoGuardado(String queSoy, String ID,
 			String tipo, Tuple<String, String>[] parametros) {
 		// TODO Auto-generated method stub
 		if(queSoy.equals("rutina")){
-			
+			return new Rutina(queSoy, ID,
+			tipo, parametros);
 		}
 		else{
-			
+			return new Funcion(queSoy, ID,
+			tipo, parametros);
 		}
-		return null;
 	}
 	
 

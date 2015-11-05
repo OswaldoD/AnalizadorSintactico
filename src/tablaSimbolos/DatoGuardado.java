@@ -1,5 +1,19 @@
 package tablaSimbolos;
-
+/**
+ * Clase que implementa los diferentes datos que se van a almacenar
+ * en la tabla de símbolos
+ * 
+ * @author Oswaldo Dávila - 201222296
+ *         Josefina Molina - 201240133
+ *         
+ * Los tipos de datos son: 
+ * 		                  Variables atómicas: Enteros, Chars, Strings, Booleanos, Conjuntos
+ *                        Variables estructurales: Arreglos y Registros
+ * 					      Constantes
+ *                        Funciones
+ * 	                      Rutinas 
+ *
+ */
 public abstract class DatoGuardado {
 	
 	private String queSoy;
@@ -42,19 +56,13 @@ public abstract class DatoGuardado {
 	}
 	
 	/**
-	 * Constructor de las funciones
-	 * @return
-	 */
-	public DatoGuardado(){
-		
-	}
-	
-	/**
-	 * Constructor de las rutinas
+	 * Constructor de las funcines y rutinas
 	 * @return
 	 */
 	public DatoGuardado(String queSoy, String ID, String tipo, Tuple<String, String>[] parametros){
-		
+		setQueSoy(queSoy);
+		setID(ID);
+		setTipo(tipo);
 	}
 
 	public abstract String getDescripcion();
