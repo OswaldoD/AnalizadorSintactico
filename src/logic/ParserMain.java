@@ -1,5 +1,7 @@
 package logic;
 
+import generador.EscribeArchivo;
+
 import java.util.Hashtable;
 import java.util.Stack;
 
@@ -27,16 +29,19 @@ public class ParserMain extends Gramatica {
 	private Hashtable<String, DatoGuardado> TablaSimbolosGlobal; //Tabla de símbolos
 	private DatoGuardadoFactory dataFactory;
 	private Stack<String> pilaParalelaDeTipos;
+	private EscribeArchivo ASMFILE;
 	
 	public ParserMain(String rutaArchivo, String rutaTransiciones, String rutaEFinales){
 		scanner = new Scanner(rutaArchivo, rutaTransiciones, rutaEFinales);
 		
-		
+	
+		System.out.println(System.getProperty("user.home"));
 		
 		TablaSimbolosGlobal = new Hashtable<String, DatoGuardado>();
 		
 		dataFactory = new DatoGuardadoFactory();
 		
+		ASMFILE = new EscribeArchivo();
 	}
 
 	
@@ -56,6 +61,8 @@ public class ParserMain extends Gramatica {
 		pila_parsing = new Stack<Integer>();
 
 		pila_parsing.push(NO_TERMINAL_INICIAL); //push del simbolo inicial
+		
+		ASMFILE.escribeArchivo();
 		
 		while (!(token_actual.getLexema().equals("FIN DE ARCHIVO"))){ // fin de archivo
 			
